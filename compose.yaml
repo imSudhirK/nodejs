@@ -1,0 +1,6 @@
+services:
+  img:
+    build: .
+    container_name: nodejs-notes
+    ports:
+      - 4000:4000

@@ -1,0 +1,57 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "basic backend service",
+  "main": "dist/main.js",
+  "scripts": {
+    "build:prod": "webpack --config webpack-config.js --progress",
+    "start": "concurrently -r -n \"Webpack,Nodemon\" \"npm run webpack-watch\" \"npm run server-watch\"",
+    "webpack-watch": "webpack --config webpack-config.js --watch --progress",
+    "server-watch": "nodemon -e js dist/main.js",
+    "lint:fix": "prettier --write \"**/*.ts\" --tab-width 4",
+    "postinstall": "npm explore @imsudhirk/models -- npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imSudhirK/nodejs.git"
+  },
+  "author": "Sudhir Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imSudhirK/nodejs/issues"
+  },
+  "homepage": "https://github.com/imSudhirK/nodejs#readme",
+  "dependencies": {
+    "@imsudhirk/models": "https://github.com/imSudhirK/models.git",
+    "@slack/web-api": "^7.0.2",
+    "@types/express": "^4.17.19",
+    "aws-sdk": "^2.1525.0",
+    "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "google-spreadsheet": "^4.1.1",
+    "googleapis": "^134.0.0",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "moment-timezone": "^0.5.43",
+    "mongoose": "^7.6.2",
+    "redis": "^4.6.11",
+    "reflect-metadata": "^0.1.13",
+    "typedi": "^0.10.0",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.5",
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3",
+    "ts-loader": "^9.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
